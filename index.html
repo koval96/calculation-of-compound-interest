@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Расчет сложного процента</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+    <div class="container" id="app">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>
+                    Расчет сложного процента
+                </h2>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-6 calc text-center">
+                            <label for="deposit"><b>Начальный депозит</b></label><br>
+                            <input type="number" id="deposit" class="line" v-model="deposit">
+
+                            <br><br>
+
+                            <label for="percent"><b>Годовой процент</b></label><br>
+                            <input type="number" id="percent" v-model="percent">
+
+                            <br><br>
+
+                            <label for="time"><b>Срок</b></label><br>
+                            <input type="number" id="time" v-model="time">
+
+                            <br><br>
+
+                            <b>Валюта</b><br>
+                            <select v-model="currency">
+                                    <option>RUB</option>
+                                    <option>USD</option>
+                            </select>
+
+                            <br><br>
+
+                            <button class="btn btn-success" @click="calculation">Сделать расчет</button>
+            </div>
+            <div class="col-lg-6 text-center result">
+                <div class="col-lg-12">
+                    <h3>Результат</h3>
+                    <div v-show = "result">
+                            <br>
+                            <p>Вы получите <b>{{money}} {{currency1}}</b></p>
+                            <button class="btn btn-success" v-show="rub_transfer_show" @click="rub_transfer">Перевести в RUB</button>
+                            <button class="btn btn-success" v-show="usd_transfer_show" @click="usd_transfer">Перевести в USD</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="script.js"></script>
+</html>
